@@ -24,11 +24,11 @@ trait ExpiresAndHasGraceDays
 
     public function expired()
     {
-        if (is_null($this->expired_at)) {
+        if ($this->expired_at === null) {
             return false;
         }
 
-        if (is_null($this->grace_days_ended_at)) {
+        if ($this->grace_days_ended_at === null) {
             return $this->expired_at->isPast();
         }
 
