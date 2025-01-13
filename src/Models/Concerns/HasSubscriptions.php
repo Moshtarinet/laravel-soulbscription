@@ -398,7 +398,7 @@ trait HasSubscriptions
             ->get();
     }
 
-    private function featureModelQuery(): FeatureContract
+    private function featureModelQuery(): Builder
     {
         return config('soulbscription.models.feature')::query();
     }

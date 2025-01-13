@@ -10,6 +10,7 @@ use LucasDotVin\Soulbscription\Models\Concerns\HandlesRecurrence;
 use LucasDotVin\Soulbscription\Contracts\PlanContract;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use LucasDotVin\Soulbscription\Enums\PeriodicityType;
 
 class Plan extends Model implements PlanContract
 {
@@ -22,6 +23,10 @@ class Plan extends Model implements PlanContract
         'name',
         'periodicity_type',
         'periodicity',
+    ];
+
+    protected $casts = [
+        'periodicity_type' => PeriodicityType::class
     ];
 
     public function features(): BelongsToMany
